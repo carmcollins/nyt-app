@@ -35,12 +35,12 @@
                         <li class="list-group-item">
                             <form>
                                 <div class="form-group">
-                                    <label for="search-term">Search Term:</label>
-                                    <input type="text" class="form-control" id="search-term" placeholder="Japan">
+                                    <label for="search-input">Search Term:</label>
+                                    <input type="text" class="form-control" id="search-input" placeholder="Japan">
                                 </div>
                                 <div class="form-group">
-                                    <label for="number-of-records">Number of Records to Retrieve:</label>
-                                    <select class="form-control" id="number-of-records">
+                                    <label for="records-input">Number of Records to Retrieve:</label>
+                                    <select class="form-control" id="records-input">
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -49,16 +49,16 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="start-year">Start Year (Optional):</label>
-                                    <input type="text" class="form-control" id="start-year" placeholder="2016">
+                                    <label for="start-year-input">Start Year (Optional):</label>
+                                    <input type="text" class="form-control" id="start-year-input" placeholder="2016">
                                 </div>
                                 <div class="form-group">
-                                    <label for="end-year">End Year (Optional):</label>
-                                    <input type="text" class="form-control" id="end-year" placeholder="2018">
+                                    <label for="end-year-input">End Year (Optional):</label>
+                                    <input type="text" class="form-control" id="end-year-input" placeholder="2018">
                                 </div>
                                 <div>
-                                    <button type="button" class="btn btn-info"><i class="fas fa-search"></i> Search</button>
-                                    <button type="button" class="btn btn-light"><i class="far fa-trash-alt"></i> Clear Results</button>
+                                    <button type="button" class="btn btn-info" id="sButton"><i class="fas fa-search"></i> Search</button>
+                                    <button type="button" class="btn btn-light" id="cButton"><i class="far fa-trash-alt"></i> Clear Results</button>
                                 </div>
                             </form>
                         </li>
@@ -75,13 +75,6 @@
                         <li class="list-group-item">
                             <div class="card mt-2 mb-2">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <h5><span id="article-number"></span> <span id="article-name"></span></h5>
-                                        <h6>By: <span id="author-name"></span></h6>
-                                        <p>Section: <span id="section-name"></span></p>
-                                        <p><span id="date-published"></span> <span id="time-published"></span></p>
-                                        <a href=""><span id="link-to-article"></span></a>
-                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -92,7 +85,7 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="api.js"></script>
 </body>
 
 </html>
