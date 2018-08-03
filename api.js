@@ -34,13 +34,13 @@ $(document).ready(function () {
                 var timeStamp=(termResponse.response.docs[i].pub_date);
                 var site= (termResponse.response.docs[i].web_url);
                 
-                articleLi.append($("<p>" + title + "</p>"));
-                articleLi.append($("<p>" + author + "</p>"));
+                articleLi.append($("<h5>" + title + "</h5>"));
+                articleLi.append($("<h6>" + author + "</h6>"));
                 articleLi.append($("<p>" + section + "</p>"));
                 articleLi.append($("<p>" + timeStamp + "</p>"));
                 articleLi.append($("<p>" + site + "</p>"));
                 
-                $(".list-group").append(articleLi);
+                $(".article-list-group").append(articleLi);
             }
         });
     });
