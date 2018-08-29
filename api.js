@@ -1,7 +1,7 @@
 var api = "0f1e5f1eb5e3402dadd720d3519de6bf";
 
 $(document).ready(function () {
-    //when submit button is pushed
+
     $("#sButton").on("click", function () {
 
         var term = $("#search-input").val().trim();
@@ -9,8 +9,6 @@ $(document).ready(function () {
         var records = $("#records-input").val().trim();
         var startYear = $("#start-year-input").val().trim();
         var endYear = $("#end-year-input").val().trim();
-
-        //search term
 
         var urlInitial = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
         var url = urlInitial += "?" + $.param({
@@ -26,33 +24,30 @@ $(document).ready(function () {
         }).then(function (termResponse) {
             console.log(termResponse);
             for (i = 0; i < records; i++) {
-                var articleLi = $("<li class='list-group-item'>");
+                var card = $("<div class='card m-4 p-4'>");
 
-                var title= (termResponse.response.docs[i].headline.main);
-                var author= (termResponse.response.docs[i].byline.original);
-                var section= (termResponse.response.docs[i].section_name);
-                var timeStamp=(termResponse.response.docs[i].pub_date);
-                var site= (termResponse.response.docs[i].web_url);
-                
-                articleLi.append($("<h5>" + title + "</h5>"));
-                articleLi.append($("<h6>" + author + "</h6>"));
-                articleLi.append($("<p>" + section + "</p>"));
-                articleLi.append($("<p>" + timeStamp + "</p>"));
-                articleLi.append($("<p>" + site + "</p>"));
-                
-                $(".article-list-group").append(articleLi);
+                var title = termResponse.response.docs[i].headline.main;
+                var author = termResponse.response.docs[i].byline.original;
+                var section = termResponse.response.docs[i].section_name;
+                var timeStamp = termResponse.response.docs[i].pub_date;
+                var site = termResponse.response.docs[i].web_url;
+
+                card.append($("<h5>" + title + "</h5>"));
+                card.append($("<h6>" + author + "</h6>"));
+                card.append($("<p>" + section + "</p>"));
+                card.append($("<p>" + timeStamp + "</p>"));
+                card.append($("<a href='" + site + "'>" + site + "</a>"));
+
+                $(".card-box").append(card);
             }
         });
     });
 
-   
-
 });
 
 $("#cButton").on("click", function () {
-    $("#search-input").empty();
-    $("#records-input").empty();
-    $("#start-year-input").empty();
-    $("#end-year-input").empty();
-
+    $("#search-input").val("");
+    $("#records-input").val("");
+    $("#start-year-input").val("");
+    $("#end-year-input").val("");
 });
